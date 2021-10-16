@@ -7,7 +7,7 @@ app.get("/", (req, res) => { // return string when user visits root
 })
 */
 app.get("/", (req, res) => { // return template when user visits root
-    res.sendFile(__dirname + 'views/index.html')
+    res.sendFile(__dirname + '/views/index.html')
 })
 
 
