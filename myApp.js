@@ -7,13 +7,14 @@ app.get("/", (req, res) => { // return string when user visits root
 })
 */
 app.use('/public', express.static(__dirname + '/public')) // path for styles.css in public folder. Express.static is same as {{ load static }}?
+
 app.get("/", (req, res) => { // return template when user visits root
     res.sendFile(__dirname + '/views/index.html')
 })
 
-
-
-
+app.get("/json", (req, res) => {
+    res.json({"message": "Hello json"})
+})
 
 
 
