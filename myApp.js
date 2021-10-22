@@ -12,8 +12,12 @@ app.get("/", (req, res) => { // return template when user visits root
     res.sendFile(__dirname + '/views/index.html')
 })
 
-app.get("/json", (req, res) => {
-    res.json({"message": "Hello json"})
+app.get("/json", (req, res) => { // API response by GET from "/json" route.
+    if (process.env.MESSAGE_STYLE === 'uppercase') {
+        res.json({"message": "Hello json".toUpperCase()})
+    } else {
+        res.json({'message': 'Hello json'})
+    }
 })
 
 
