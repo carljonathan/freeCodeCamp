@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express = require('express');
 var app = express();
 console.log('Hello World') // log hello world
@@ -15,7 +16,7 @@ app.get("/", (req, res) => { // return template when user visits root
 app.get("/json", (req, res) => { // API response by GET from "/json" route.
 
 	let result = ''
-	if (process.env.MESSAGE_STYLE === "uppercase") {
+	if (process.env.MESSAGE_STYLE) {
 		result = 'Hello json'.toUpperCase()
 	} else {
 		result = 'Hello not json'
