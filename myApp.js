@@ -14,11 +14,10 @@ app.get("/", (req, res) => { // return template when user visits root
 })
 
 app.get("/json", (req, res) => { // API response by GET from "/json" route.
-    const result = 'hello json'.toUpperCase()
-    if (process.env.MESSAGE_STYLE === 'uppercase') {
-        res.json({"message": result})
+    if (process.env.MESSAGE_STYLE === "uppercase") {
+        res.json({"message": "Hello json".toUpperCase()})
     } else {
-        res.json({'message': 'Hello not json'})
+        res.json({'message': 'Hello json'})
     }
 })
 
