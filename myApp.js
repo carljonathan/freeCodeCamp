@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 var express = require('express');
 var app = express();
 console.log('Hello World') // log hello world
@@ -13,7 +13,7 @@ app.get("/", (req, res) => { // return template when user visits root
     res.sendFile(__dirname + '/views/index.html')
 })
 
-app.get("/json", (req, res) => { // API response by GET from "/json" route.
+app.get("/json", (req, res) => { // API response by GET from "/json" route. IF Heroku, remember to set the key=value in Heroku settings > reveal Config vars.
     if (process.env.MESSAGE_STYLE === "uppercase") {
         res.json({"message": "Hello json".toUpperCase()})
     } else {
