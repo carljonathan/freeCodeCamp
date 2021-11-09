@@ -34,7 +34,7 @@ app.get("/now", (req, res, next) => { // API response by get from "/now". Return
 	req.time = new Date().toString //middelware, since it can be chained, can be used to make some operation before the final result is presented to the user
     next()
 }, (req, res) => {
-    res.json({"time": req.time})
+    res.send({"time": req.time})
 })
 
 
