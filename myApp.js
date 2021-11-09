@@ -30,8 +30,8 @@ app.get("/json", (req, res) => { // API response by GET from "/json" route. IF H
     }
 })
 
-app.get("/now", (req, res, next) => {
-	req.time = new Date().toString
+app.get("/now", (req, res, next) => { // API response by get from "/now". Returns current date as json. Function is chained - first function called middleware
+	req.time = new Date().toString //middelware, since it can be chained, can be used to make some operation before the final result is presented to the user
     next()
 }, (req, res) => {
     res.json({"time": req.time})
