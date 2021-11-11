@@ -42,7 +42,12 @@ app.get("/:word/echo", (req, res) => {
     res.json({"echo": req.params.word})
 })
 
+// route to handle query string with ?-delimiter
+app.get("/name", (req, res) => {
+    const firstName = req.query.firs
+    const lastName = req.query.last
 
+    res.json({`name: ${firstName} ${lastName}`})
 
 
 
