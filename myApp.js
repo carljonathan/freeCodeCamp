@@ -47,7 +47,8 @@ app.get("/name", (req, res) => {
     const firstName = req.query.firs
     const lastName = req.query.last
 
-    res.json({`name: ${firstName} ${lastName}`})
+    res.json({"name": `${firstName} ${lastName}`})
+})
 
 
 
