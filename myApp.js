@@ -37,7 +37,10 @@ app.get("/now", (req, res, next) => { // API response by get from "/now". Return
     res.send({"time": req.time})
 })
 
-
+// route to echo the word in the route parameter :word
+app.get("/:word/echo", (req, res) => {
+    res.json({"echo": req.params.word})
+})
 
 
 
