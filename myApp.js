@@ -1,4 +1,5 @@
 require('dotenv').config()
+const bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 console.log('Hello World') // log hello world
@@ -17,6 +18,11 @@ app.use((req, res, next) => {
 })
 
 app.use('/public', express.static(__dirname + '/public')) // path for styles.css in public folder. Express.static is same as {{ load static }}?
+
+// middleware to handle POST request and read the 'body' tag. extended : false = classic encoding - only string or array values
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse string or array to json
+app.use(bodyParser.json())
 
 app.get("/", (req, res) => { // return template when user visits root
     res.sendFile(__dirname + '/views/index.html')
@@ -44,12 +50,13 @@ app.get("/:word/echo", (req, res) => {
 
 // route to handle query string with ?-delimiter
 app.get("/name", (req, res) => {
+    // take query strings and save to vars
     const firstName = req.query.first
     const lastName = req.query.last
 
-    res.json({name: `${firstName} ${lastName}`})
+    // respond with JSON
+    res.json({ name: `${firstName} ${lastName}` })
 })
-
 
 
 
