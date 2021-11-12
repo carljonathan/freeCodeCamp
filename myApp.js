@@ -58,7 +58,15 @@ app.get("/name", (req, res) => {
     res.json({ name: `${firstName} ${lastName}` })
 })
 
+// route to handle POST request to /name. POST body is stored and accessed in req.body
+app.post("/name", (req, res) => {
+    // get body data
+    const firstName = req.body.first
+    const lastName = req.body.last
 
+    // return json object
+    res.json({ name: `${firstName} ${lastName}`})
+})
 
 
 
